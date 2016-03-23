@@ -7,3 +7,14 @@ nav ul li {
     display: inline;
     margin: 0 0.6em;
 }
+
+.authentication {
+    padding: .3em;
+    max-width: 25em;
+    text-align: center;
+    margin: .5em;
+}
+
+input {
+    margin: .2em;
+}

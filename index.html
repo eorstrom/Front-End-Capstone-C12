@@ -6,22 +6,46 @@
     <!-- Latest compiled and minified CSS -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <!-- <link rel="stylesheet" type="text/css" href="styles/login-styles.css"> -->
 </head>
 
-<body>
+<body ng-app="soundApp">
 
-    <!-- NavBar -->
-    <nav>
-        <h1>What's That Sound?</h1>
-        <ul>
-            <li><a href="#">My Songs List</a></li>
-            <li><a href="#">Add A Song</a></li>
-            <li><a href="#">My Effects</a></li>
-        </ul>
-    </nav>
+    <div class="app-container">
+        <!-- NavBar -->
+        <nav>
+            <h1>What's That Sound?</h1>
+            <ul>
+                <li><a href="#/songs-list">My Songs List</a></li>
+                <li><a href="#/add-song">Add A Song</a></li>
+                <li><a href="#/my-effects">My Effects</a></li>
+                <li><a href="#/logout">Logout</a></li>
+            </ul>
+        </nav>
+        
+        <!-- <div ng-include="'partials/login.html'" scope="" onload=""></div> -->
+        <!-- <div ng-include="'partials/addSong.html'" scope="" onload=""></div> -->
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <div ng-view></div>
+
+    </div>
+
+
+
+    <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bower_components/firebase/firebase.js"></script>
+    <script src="lib/bower_components/angular/angular.min.js"></script>
+    <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+    <script srd="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/controllers/LoginCtrl.js"></script>
+    <script src="app/controllers/SongsListCtrl.js"></script>
+    <script src="app/controllers/AddSongCtrl.js"></script>
+    <script src="app/controllers/AddSongCtrl.js"></script>
+    <script src="app/factories/AuthFactory.js"></script>
+    
     <!-- Latest compiled and minified JavaScript -->
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
 </body>

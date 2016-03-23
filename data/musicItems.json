@@ -1,0 +1,58 @@
+{
+    "items": {
+        "pedals": {
+            "pedal1": {
+                "volume": 5,
+                "tone": 5,
+                "distortion": 5
+            }, 
+            "pedal2": {
+                "volume": 3,
+                "tone": 3,
+                "distortion": 3
+            }, 
+            "pedal3": {    
+                "volume": 8,
+                "tone": 8,
+                "distortion": 8
+            }    
+        },
+        "amplifires": {
+            "amplifire1": {
+                "volume": 5,
+                "tone": 5,
+                "distortion": 5
+            }, 
+            "amplifire2": {
+                "volume": 3,
+                "tone": 3,
+                "distortion": 3
+            }, 
+            "amplifire3": {    
+                "volume": 8,
+                "tone": 8,
+                "distortion": 8
+            }    
+        },
+        "guitars": {
+            "guitar1": {
+                "volume": 5,
+                "tone": 5,
+                "distortion": 5,
+                "numOfStrings": 6
+            }, 
+            "guitar2": {
+                "volume": 3,
+                "tone": 3,
+                "distortion": 3,
+                "numOfStrings": 6
+            }, 
+            "guitar3": {    
+                "volume": 8,
+                "tone": 8,
+                "distortion": 8,
+                "numOfStrings": 12
+            }    
+        }
+    }
+}
