@@ -32,6 +32,20 @@ let isAuth = function (authFactory) {
             controller: 'SongsListCtrl',
             resolve: { isAuth }
           }).
+          when('/add-song', {
+            templateUrl: 'partials/add-song.html',
+            controller: 'AddSongCtrl',
+            resolve: { isAuth }
+          }).
+          when('/my-gear', {
+            templateUrl: 'partials/gear.html',
+            controller: 'GearCtrl',
+            resolve: { isAuth }
+          }).
+          // when('/searchresults', {
+          //   templateUrl: 'partials/search-results.html',
+          //   controller: 'ResultsCtrl'
+          // }).
           when('/login', {
             templateUrl: 'partials/login.html',
             controller: "LoginCtrl"
@@ -40,19 +54,6 @@ let isAuth = function (authFactory) {
             templateUrl: 'partials/login.html',
             controller: "LoginCtrl"
           }).
-          when('/add-song', {
-            templateUrl: 'partials/add-song.html',
-            controller: 'AddSongCtrl',
-            resolve: { isAuth }
-          }).
-          // when('/login', {
-          //   templateUrl: 'partials/login.html',
-          //   controller: 'LoginCtrl'
-          // }).
-          // when('/searchresults', {
-          //   templateUrl: 'partials/search-results.html',
-          //   controller: 'ResultsCtrl'
-          // }).
           otherwise({
             redirectTo: '/'
           });

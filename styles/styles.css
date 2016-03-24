@@ -16,5 +16,9 @@ nav ul li {
 }
 
 input {
-    margin: .2em;
+    margin: .3em;
+}
+
+label {
+    display: block;
 }

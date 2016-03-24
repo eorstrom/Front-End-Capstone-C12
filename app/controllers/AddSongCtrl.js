@@ -7,7 +7,7 @@ soundApp.controller("AddSongCtrl", [
 
     // Default property values for keys bound to input fields
     $scope.newSong = {
-      name: "",
+      title: "",
       duration: ""
     };
 
@@ -16,12 +16,12 @@ soundApp.controller("AddSongCtrl", [
 
       // POST the song to Firebase
       $http.post(
-        "https://front-end-capstone12.firebaseio.com/",
+        "https://front-end-capstone12.firebaseio.com/songs.json",
 
         // Remember to stringify objects/arrays before
         // sending them to an API
         JSON.stringify({
-          name: $scope.newSong.name,
+          title: $scope.newSong.title,
           duration: $scope.newSong.duration
         })
 

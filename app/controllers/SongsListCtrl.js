@@ -1,1 +1,3 @@
-soundApp.controller("SongsListCtrl", function() {});
+soundApp.controller("SongsListCtrl", function() {
+    
+});

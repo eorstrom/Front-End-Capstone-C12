@@ -1,0 +1,1 @@
+soundApp.controller("NavBarCtrl", function() {});
