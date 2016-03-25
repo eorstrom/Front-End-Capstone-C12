@@ -66,6 +66,11 @@ let isAuth = function (authFactory) {
             templateUrl: 'partials/song-details.html',
             controller: 'SongDetailsCtrl',
             resolve: { isAuth }
+          }).
+          when('/pedals/:pedalid', {
+            templateUrl: 'partials/pedal-details.html',
+            controller: 'PedalDetailsCtrl',
+            resolve: { isAuth }
           }).   // login page
           when('/login', {
             templateUrl: 'partials/login.html',

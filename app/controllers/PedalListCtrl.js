@@ -10,11 +10,10 @@ soundApp.controller("PedalListCtrl",
         $http.get('https://front-end-capstone12.firebaseio.com/pedals.json')
         .then(
         function(data) {
-            var newArray = [];
-                for (var key in data.data) {
-                    data.data[key].id = key;
-                    $scope.pedals.push(data.data[key]);
-                }
+            for (var key in data.data) {
+                data.data[key].id = key;
+                $scope.pedals.push(data.data[key]);
+            }
             console.log("$scope.pedals", $scope.pedals);
         })
 }]);

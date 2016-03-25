@@ -1,3 +1,5 @@
 "use strict";
 
-soundApp.controller("GearCtrl", function() {});
+soundApp.controller("GearCtrl", function() {
+
+});
