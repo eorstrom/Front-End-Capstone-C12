@@ -1,0 +1,10 @@
+<article>
+
+    <header><h3>My Pedals</h3></header>
+
+    <section ng-controller="PedalListCtrl" class="pedals-list">
+        <div ng-repeat="pedal in pedals">
+            <a href="#/pedals/{{ pedal.id }}">Brand: {{ pedal.brand }}, Model: {{ pedal.model }}</a>
+        </div>
+    </section>
+</article>

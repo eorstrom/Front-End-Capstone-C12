@@ -1,0 +1,14 @@
+<section class="add-amplifier">
+    <div ng-include="'partials/navbar.html'" scope="" onload=""></div>
+
+    <!-- Add New Song Form -->
+    <div class="amplifier-form">
+        <h3>Add An Amplifier:</h3>
+        <label>Add Brand: <input type="text" ng-model="newAmplifier.brand" placeholder="Enter Amplifier Brand"></input>
+        </label>
+        <label>Add Model: <input type="text" ng-model="newAmplifier.model" placeholder="Enter Amplifier Model"></input>
+        </label>
+
+        <button ng-click="addAmplifier()">Add Amplifier</button>
+    </div>
+</section>

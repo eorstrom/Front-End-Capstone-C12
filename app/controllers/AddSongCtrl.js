@@ -1,3 +1,5 @@
+"use strict";
+
 soundApp.controller("AddSongCtrl", [
   "$scope",
   "$location",

@@ -1,0 +1,10 @@
+<article>
+
+    <header><h3>My Guitars</h3></header>
+
+    <section ng-controller="GuitarListCtrl" class="guitars-list">
+        <div ng-repeat="guitar in guitars">
+            <a href="#/guitars/{{ guitar.id }}">Brand: {{ guitar.brand }}, Model: {{ guitar.model }}</a>
+        </div>
+    </section>
+</article>

@@ -4,12 +4,15 @@
     <header><h3>My Songs</h3></header>
 
     <section class="songs-list">
-        <div ng-repeat="song in songs">
-            <a href="#/songs/{{ song.id }}">{{ song.name }}</a>
-        </div>
 
-        <div>
+        <div class="add-song">
             <a href="#/add-song">Add New Song</a>
         </div>
+        
+        <div ng-repeat="song in songs">
+            <a href="#/songs/{{ song.id }}">{{ song.title }}, Duration: {{ song.duration }}</a>
+        </div>
+
+        
     </section>
 </article>

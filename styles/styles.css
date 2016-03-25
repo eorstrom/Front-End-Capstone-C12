@@ -1,3 +1,23 @@
+body {
+    font-size: 1.1em;
+}
+
+.authentication {
+    padding: .3em;
+    max-width: 25em;
+    text-align: center;
+    margin: .5em;
+}
+
+.delete {
+    margin-top: 5em;
+}
+
+.add-song {
+    margin: 1.5em;
+    text-align: center;
+}
+
 nav ul li a {
     text-decoration: none;
 }
@@ -8,11 +28,8 @@ nav ul li {
     margin: 0 0.6em;
 }
 
-.authentication {
-    padding: .3em;
-    max-width: 25em;
+h1, h2, h3, h4, h5, h6 {
     text-align: center;
-    margin: .5em;
 }
 
 input {
@@ -21,4 +38,8 @@ input {
 
 label {
     display: block;
+}
+
+a {
+    text-decoration: none;
 }

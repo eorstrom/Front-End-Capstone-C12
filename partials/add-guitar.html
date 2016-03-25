@@ -1,0 +1,14 @@
+<section class="add-guitar">
+    <div ng-include="'partials/navbar.html'" scope="" onload=""></div>
+
+    <!-- Add New Song Form -->
+    <div class="guitar-form">
+        <h3>Add A Guitar:</h3>
+        <label>Add Brand: <input type="text" ng-model="newGuitar.brand" placeholder="Enter Guitar Brand"></input>
+        </label>
+        <label>Add Model: <input type="text" ng-model="newGuitar.model" placeholder="Enter Guitar Model"></input>
+        </label>
+
+        <button ng-click="addGuitar()">Add Guitar</button>
+    </div>
+</section>
