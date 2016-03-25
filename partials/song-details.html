@@ -1,0 +1,23 @@
+<section class="song-details">
+    &lt;&lt; <a href="/#songs-list">Back to song listings</a>
+
+    <div>
+        <h2>{{ selectedSong.title }}</h2>
+        Duration: {{ selectedSong.duration }}
+    </div>
+
+    <div>
+        <p>Add Song Section: </p>
+        <select>
+            <option>Intro</option>
+            <option>Verse</option>
+            <option>Chorus</option>
+            <option>Bridge</option>
+            <option>Outro</option>
+            <option>Solo</option>
+        </select>
+        <button>Add Section to Song</button>
+    </div>
+
+    <button class="delete" ng-click="deleteSong()">Delete Song</button>
+</section>

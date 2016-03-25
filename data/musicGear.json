@@ -1,0 +1,108 @@
+{
+    "gear": {
+        "pedals": {
+            "1": {
+                "brand": "MXR",
+                "model": "Dynacomp",
+                "output": 10,
+                "sensitivity": 10
+            }, 
+            "2": {
+                "brand": "Electro-Harmonix",
+                "model": "Soulfood",
+                "volume": 10,
+                "treble": 10,
+                "drive": 10
+            }, 
+            "3": { 
+                "brand": "Voss",
+                "model": "Adaptive Distortion DA-2",   
+                "level": 10,
+                "low": 10,
+                "high": 10,
+                "a-dist": 10
+            }    
+        },
+        "amplifires": {
+            "1": {
+                "brand": "Fender",
+                "model": "Super Champ",
+                "volume": {
+                    "lead": false,
+                    "vol": 10
+                    },
+                "treble": {
+                    "lead": false,
+                    "vol": 10
+                    },
+                "bass": 10,
+                "reverb": 10,
+                "lead level": 10,
+                "master": 10,
+            }, 
+            "2": {
+                "brand": "Fender",
+                "model": "Blues Junior",
+                "reverb": 12,
+                "master": 12,
+                "middle": 12,
+                "bass": 12,
+                "treble": 12,
+                "volume": 12,
+                "fat": false
+            }, 
+            "3": {
+                "brand": "Soldono",
+                "model": "Astroverb 16",    
+                "preamp": 11,
+                "reverb": 11,
+                "bass": 11,
+                "middle": 11,
+                "treble": 11,
+                "volume": 11,
+                "presence": 11
+            }    
+        },
+        "guitars": {
+            "1": {
+                "brand": "Gibson",
+                "model": "Les Paul, Standard",
+                "bridge pickup": {
+                    "initial": false,
+                    "volume": 10,
+                    "tone": 10
+                    },
+                "neck pickup": {
+                    "initial": false,
+                    "volume": 10,
+                    "tone": 10
+                    }
+            }, 
+            "2": {
+                "brand": "Fender",
+                "model": "Stratocaster",
+                "pickup switch": {
+                    "bridge": true,
+                    "bridge and middle": false,
+                    "middle": false,
+                    "middle and neck": false,
+                    "neck": false,
+                    },
+                "volume": 10,
+                "tone1": 10,
+                "tone2": 10
+            }, 
+            "3": {
+                "brand": "Fender",
+                "model": "Telecaster",    
+                "volume": 10,
+                "tone": 10,
+                "pickup switch": {
+                    "bridge": true,
+                    "both": false,
+                    "neck": false
+                }
+            }    
+        }
+    }
+}
