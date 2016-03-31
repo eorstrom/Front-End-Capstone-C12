@@ -26,12 +26,12 @@ let isAuth = function (authFactory) {
             templateUrl: 'partials/songs-list.html',
             controller: 'SongsListCtrl',
             resolve: { isAuth }
-          }).
+          }).   // songs list
           when('/songs-list', {
             templateUrl: 'partials/songs-list.html',
             controller: 'SongsListCtrl',
             resolve: { isAuth }
-          }).
+          }).   // amplifier list
           when('/amplifier-list', {
             templateUrl: 'partials//amplifier-list.html',
             controller: 'AmplifierListCtrl',
@@ -51,22 +51,22 @@ let isAuth = function (authFactory) {
             templateUrl: 'partials/add-guitar.html',
             controller: 'AddGuitarCtrl',
             resolve: { isAuth }
-          }).
+          }).   // add new pedal
           when('/add-pedal', {
             templateUrl: 'partials/add-pedal.html',
             controller: 'AddPedalCtrl',
             resolve: { isAuth }
-          }).
+          }).   // add new amplifier
           when('/add-amplifier', {
             templateUrl: 'partials/add-amplifier.html',
             controller: 'AddAmplifierCtrl',
             resolve: { isAuth }
-          }).
+          }).   // song detail
           when('/songs/:songid', {
             templateUrl: 'partials/song-details.html',
             controller: 'SongDetailsCtrl',
             resolve: { isAuth }
-          }).
+          }).   // pedal detail
           when('/pedals/:pedalid', {
             templateUrl: 'partials/pedal-details.html',
             controller: 'PedalDetailsCtrl',

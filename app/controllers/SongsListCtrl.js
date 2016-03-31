@@ -10,6 +10,7 @@ soundApp.controller("SongsListCtrl",
         $http.get('https://front-end-capstone12.firebaseio.com/songs.json')
         .then(
         function(data) {
+            // loop over each song in the Firebase and add them to the songs array
             for (var key in data.data) {
                 data.data[key].id = key;
                 $scope.songs.push(data.data[key]);

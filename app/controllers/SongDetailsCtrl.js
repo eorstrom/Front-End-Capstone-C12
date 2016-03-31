@@ -17,7 +17,7 @@ soundApp.controller("SongDetailsCtrl",
     // Invoke the promise that reads from Firebase
     songFactory().then(
 
-      // Handle resolve() from the promise
+        // Handle resolve() from the promise
         function(songCollection) {
             console.log("songCollection", songCollection);
             Object.keys(songCollection).forEach(function (key) {
@@ -30,16 +30,34 @@ soundApp.controller("SongDetailsCtrl",
             return song.id === $routeParams.songid;
         })[0];
         console.log("$scope.selectedSong", $scope.selectedSong);
-      },
+        },
 
-      // Handle reject() from the promise
-      function(err) {
+        // Handle reject() from the promise
+        function(err) {
         console.log(err)
-      });
+        }
+    );
+
+    // Sets the addSongSections div to false, rendering the div hidden on page load
+    $scope.showSongSections = false;
+    // Sets the addSongSections div to true, showing a div when the Add Sections button is clicked 
+    // the button acts like a toggle for showing and hiding the div
+    $scope.showSections = function() {
+        $scope.showSongSections = !$scope.showSongSections;
+    };
+
+    // $scope.addSection = function() {
+
+    // };
+
+    $scope.showSectionLength = false;
+    $scope.sectionLength = function() {
+        $scope.showSectionLength = !$scope.showSectionLength;
+    }
 
     /*
-      This function is bound to an ng-click directive
-      on the button in the view
+      This function is bound to an ng-click directive on the button in the view
+      Function deletes the current song from Firebase, then redirects back to the song list
     */
     $scope.deleteSong = function(){ $http
         .delete(`https://front-end-capstone12.firebaseio.com/songs/${$routeParams.songid}.json`)

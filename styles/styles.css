@@ -6,7 +6,7 @@ body {
     padding: .3em;
     max-width: 25em;
     text-align: center;
-    margin: .5em;
+    margin: 0 auto;
 }
 
 .delete {
@@ -18,8 +18,14 @@ body {
     text-align: center;
 }
 
+.add-section {
+    display: block;
+    margin-top: 1em;
+}
+
 nav ul li a {
     text-decoration: none;
+    margin: 0 auto;
 }
 
 nav ul li {
@@ -34,6 +40,10 @@ h1, h2, h3, h4, h5, h6 {
 
 input {
     margin: .3em;
+}
+
+label.song-section {
+    display: block;
 }
 
 label {
