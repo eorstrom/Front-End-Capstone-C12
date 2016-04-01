@@ -11,31 +11,38 @@
     <div ng-show="showSongSections">
         <p>Add Song Sections: </p>
         <section id="show-song-section">
+
+            <!-- INTRO -->
             <label class="song-section">
                 <input class="section-length" type="checkbox" name="songSections" ng-model="song.songSections.intro" ng-click="sectionLength()">Intro
             </label>
                 <input class="section-length" type="text" name="sectionLength" placeholder="Enter section length in seconds" ng-show="showSectionLength">
 
+            <!-- VERSE -->
             <label class="song-section">
-                <input type="checkbox" name="songSections" ng-model="song.songSections.verse">Verse
+                <input type="checkbox" name="songSections" ng-model="song.songSections.verse" ng-click="sectionLength()">Verse
             </label>
                 <input class="section-length" type="text" name="sectionLength" placeholder="Enter section length in seconds" ng-show="showSectionLength">
 
+            <!-- CHORUS -->
             <label class="song-section">
                 <input type="checkbox" name="songSections" ng-model="song.songSections.chorus">Chorus
             </label>
                 <input class="section-length" type="text" name="sectionLength" placeholder="Enter section length in seconds" ng-show="showSectionLength">
-
+            
+            <!-- BRIDGE -->
             <label class="song-section">
                 <input type="checkbox" name="songSections" ng-model="song.songSections.bridge">Bridge
             </label>
                 <input class="section-length" type="text" name="sectionLength" placeholder="Enter section length in seconds" ng-show="showSectionLength">
 
+            <!-- OUTRO -->
             <label class="song-section">
                 <input type="checkbox" name="songSections" ng-model="song.songSections.outro">Outro
             </label>
                 <input class="section-length" type="text" name="sectionLength" placeholder="Enter section length in seconds" ng-show="showSectionLength">
 
+            <!-- SOLO -->
             <label class="song-section">
                 <input type="checkbox" name="songSections" ng-model="song.songSections.solo">Solo
             </label>

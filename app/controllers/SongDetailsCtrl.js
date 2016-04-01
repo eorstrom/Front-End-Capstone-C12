@@ -38,6 +38,8 @@ soundApp.controller("SongDetailsCtrl",
         }
     );
 
+    $scope.sections = ["Intro", "Verse", "Chorus", "Bridge", "Outro", "Solo"];
+    
     // Sets the addSongSections div to false, rendering the div hidden on page load
     $scope.showSongSections = false;
     // Sets the addSongSections div to true, showing a div when the Add Sections button is clicked 
