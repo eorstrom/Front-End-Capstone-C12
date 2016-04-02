@@ -3,54 +3,26 @@
 
     <div>
         <h3>{{ selectedSong.title }}</h3>
+         <!-- Duration needs to be dynamically added after calculateDuration function has executed -->
         <!-- Duration: {{ selectedSong.duration }} -->
     </div>
     
     <button class="add-section" ng-click="showSections()">Add Sections</button>
 
-    <div ng-show="showSongSections">
-        <p>Add Song Sections: </p>
-        <section id="show-song-section">
-
-            <!-- INTRO -->
-            <label class="song-section">
-                <input class="section-length" type="checkbox" name="songSections" ng-model="song.songSections.intro" ng-click="sectionLength()">Intro
-            </label>
-                <input class="section-length" type="text" name="sectionLength" placeholder="Enter section length in seconds" ng-show="showSectionLength">
-
-            <!-- VERSE -->
-            <label class="song-section">
-                <input type="checkbox" name="songSections" ng-model="song.songSections.verse" ng-click="sectionLength()">Verse
-            </label>
-                <input class="section-length" type="text" name="sectionLength" placeholder="Enter section length in seconds" ng-show="showSectionLength">
-
-            <!-- CHORUS -->
-            <label class="song-section">
-                <input type="checkbox" name="songSections" ng-model="song.songSections.chorus">Chorus
-            </label>
-                <input class="section-length" type="text" name="sectionLength" placeholder="Enter section length in seconds" ng-show="showSectionLength">
-            
-            <!-- BRIDGE -->
-            <label class="song-section">
-                <input type="checkbox" name="songSections" ng-model="song.songSections.bridge">Bridge
-            </label>
-                <input class="section-length" type="text" name="sectionLength" placeholder="Enter section length in seconds" ng-show="showSectionLength">
-
-            <!-- OUTRO -->
-            <label class="song-section">
-                <input type="checkbox" name="songSections" ng-model="song.songSections.outro">Outro
-            </label>
-                <input class="section-length" type="text" name="sectionLength" placeholder="Enter section length in seconds" ng-show="showSectionLength">
-
-            <!-- SOLO -->
-            <label class="song-section">
-                <input type="checkbox" name="songSections" ng-model="song.songSections.solo">Solo
-            </label>
-                <input class="section-length" type="text" name="sectionLength" placeholder="Enter section length in seconds" ng-show="showSectionLength">
-        </section>
-
-        <button class="add-sections" ng-click="addSections()">Add Sections to Song</button>
+    <div ng-repeat="currentSection in sections" ng-show="showSongSections">    
+        <label class="song-section">
+            <input class="section-length" type="checkbox" name="songSections" ng-model="song.sections.id" ng-show="showSongSections" ng-click="sectionLength(currentSection)">
+        <span>{{ currentSection.id }}</span>
+        </label>
+        <input class="section-length" type="text" name="sectionLength" placeholder="Enter section length in seconds" ng-model="currentSection.length" ng-show="currentSection.visible">
     </div>
 
+    <button ng-click="calculateDuration()">Add Sections to Song</button>
+
+    <button>Add Gear to Section</button>
+
+    <!-- Guitars: <select></select>
+        Amplifiers: <select></select>
+        Pedals: <select></select> -->
     <button class="delete" ng-click="deleteSong()">Delete Song</button>
 </section>

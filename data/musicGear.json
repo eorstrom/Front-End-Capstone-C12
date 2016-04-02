@@ -10,6 +10,7 @@
             "2": {
                 "brand": "Electro-Harmonix",
                 "model": "Soulfood",
+                "settings": ["volume", "treble", "drive"],
                 "volume": 10,
                 "treble": 10,
                 "drive": 10

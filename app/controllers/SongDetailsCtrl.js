@@ -10,9 +10,35 @@ soundApp.controller("SongDetailsCtrl",
 
   function($scope, $routeParams, $http, $location, songFactory) {
 
+
+    // code structure to display gear items retrieved from Firebase on 'add gear to song section' view
+    /*
+    GuitarFactory().then(
+        (guitars) => {
+            $scope.guitars = guitars;
+            
+            // Do something with guitars
+            return AmplifierFactory();
+        }
+    ).then(
+        (amplifiers) => {
+            $scope.amplifiers = amplifiers;
+            // Do something with amps
+            return PedalFactory();
+        }
+    ).then(
+        (pedals) => {
+
+            // We know we have ALL the data;
+            $scope.
+        }
+    )
+    */
+
     // Default properties for bound variables
     $scope.songs = [];
     $scope.selectedSong = {};
+    $scope.songDuration;
 
     // Invoke the promise that reads from Firebase
     songFactory().then(
@@ -38,27 +64,51 @@ soundApp.controller("SongDetailsCtrl",
         }
     );
 
-    $scope.sections = ["Intro", "Verse", "Chorus", "Bridge", "Outro", "Solo"];
+    // song sections to add dynamically to song-details view
+    $scope.sections = [
+        { id: "intro", visible: false, length: 0 }, 
+        { id: "verse", visible: false, length: 0 }, 
+        { id: "chorus", visible: false, length: 0 },
+        { id: "bridge", visible: false, length: 0 },
+        { id: "outro", visible: false, length: 0 },
+        { id: "solo", visible: false, length: 0 }
+    ];
     
     // Sets the addSongSections div to false, rendering the div hidden on page load
     $scope.showSongSections = false;
-    // Sets the addSongSections div to true, showing a div when the Add Sections button is clicked 
-    // the button acts like a toggle for showing and hiding the div
+
+    /* 
+    Sets the addSongSections div to true, showing a div when the Add Sections button is clicked 
+    The button acts like a toggle for showing and hiding the div
+    */
     $scope.showSections = function() {
         $scope.showSongSections = !$scope.showSongSections;
     };
 
-    // $scope.addSection = function() {
-
-    // };
 
     $scope.showSectionLength = false;
-    $scope.sectionLength = function() {
-        $scope.showSectionLength = !$scope.showSectionLength;
+    $scope.sectionLength = function(section) {
+        let selectedSection = $scope.sections.filter((s) => {
+            return s.id === section.id;
+        })[0];
+        selectedSection.visible = !selectedSection.visible;
+        // console.log("selectedSection", selectedSection);
+        // $scope.sections[section.id].visible = !$scope.sections[section.id].visible;
+    }
+
+    // function to loop over each section length being added to the song to calculate the song duration
+    $scope.calculateDuration = function(){
+        console.log("calculateDuration was fired");
+        $scope.songDuration = 0;
+
+        $scope.sections.forEach((s) => {
+            $scope.songDuration += s.length;
+            console.log("$scope.songDuration");
+        })
     }
 
     /*
-      This function is bound to an ng-click directive on the button in the view
+      This function is bound to an ng-click directive on the delete button in the view
       Function deletes the current song from Firebase, then redirects back to the song list
     */
     $scope.deleteSong = function(){ $http
