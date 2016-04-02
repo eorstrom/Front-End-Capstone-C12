@@ -11,6 +11,7 @@ soundApp.controller("SongsListCtrl",
         .then(
         function(data) {
             // loop over each song in the Firebase and add them to the songs array
+            console.log("data", data);
             for (var key in data.data) {
                 data.data[key].id = key;
                 $scope.songs.push(data.data[key]);

@@ -6,6 +6,10 @@
          <!-- Duration needs to be dynamically added after calculateDuration function has executed -->
         <!-- Duration: {{ selectedSong.duration }} -->
     </div>
+    <div ng-show="duration">Song Duration: {{songDuration}} seconds</div>
+    <div ng-show="duration" ng-repeat="setting in settings" ng-if="setting.length != 0">
+    {{setting.id}}: {{setting.length}} seconds</div>
+    
     
     <button class="add-section" ng-click="showSections()">Add Sections</button>
 

@@ -33,7 +33,7 @@ let isAuth = function (authFactory) {
             resolve: { isAuth }
           }).   // amplifier list
           when('/amplifier-list', {
-            templateUrl: 'partials//amplifier-list.html',
+            templateUrl: 'partials/amplifier-list.html',
             controller: 'AmplifierListCtrl',
             resolve: { isAuth }
           }).   // add new song
@@ -70,6 +70,11 @@ let isAuth = function (authFactory) {
           when('/pedals/:pedalid', {
             templateUrl: 'partials/pedal-details.html',
             controller: 'PedalDetailsCtrl',
+            resolve: { isAuth }
+          }).   // amplifier detail
+          when('/amplifiers/:amplifierid', {
+            templateUrl: 'partials/amplifier-details.html',
+            controller: 'AmplifierDetailsCtrl',
             resolve: { isAuth }
           }).   // login page
           when('/login', {

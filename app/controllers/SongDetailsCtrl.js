@@ -66,12 +66,12 @@ soundApp.controller("SongDetailsCtrl",
 
     // song sections to add dynamically to song-details view
     $scope.sections = [
-        { id: "intro", visible: false, length: 0 }, 
-        { id: "verse", visible: false, length: 0 }, 
-        { id: "chorus", visible: false, length: 0 },
-        { id: "bridge", visible: false, length: 0 },
-        { id: "outro", visible: false, length: 0 },
-        { id: "solo", visible: false, length: 0 }
+        { id: "Intro", visible: false, length: 0 }, 
+        { id: "Verse", visible: false, length: 0 }, 
+        { id: "Chorus", visible: false, length: 0 },
+        { id: "Bridge", visible: false, length: 0 },
+        { id: "Outro", visible: false, length: 0 },
+        { id: "Solo", visible: false, length: 0 }
     ];
     
     // Sets the addSongSections div to false, rendering the div hidden on page load
@@ -100,11 +100,19 @@ soundApp.controller("SongDetailsCtrl",
     $scope.calculateDuration = function(){
         console.log("calculateDuration was fired");
         $scope.songDuration = 0;
+        $scope.settings = [];
+
+        var userRef = new Firebase(`https://front-end-capstone12.firebaseio.com/songs/`);
 
         $scope.sections.forEach((s) => {
-            $scope.songDuration += s.length;
-            console.log("$scope.songDuration");
+            $scope.songDuration += parseInt(s.length);
+            $scope.duration = true;
+            console.log("$scope.songDuration", $scope.songDuration);
+            $scope.settings.push({id: s.id, length: s.length});
+            // userRef.push(s.id, s.length)
         })
+
+        // get song key, write sections to song on database
     }
 
     /*
