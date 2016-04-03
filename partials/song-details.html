@@ -1,14 +1,18 @@
 <section class="song-details">
+    <div ng-include="'partials/navbar.html'" scope="" onload=""></div>
     &lt;&lt; <a href="/#songs-list">Back to song listings</a>
 
     <div>
         <h3>{{ selectedSong.title }}</h3>
-         <!-- Duration needs to be dynamically added after calculateDuration function has executed -->
-        <!-- Duration: {{ selectedSong.duration }} -->
     </div>
-    <div ng-show="duration">Song Duration: {{songDuration}} seconds</div>
-    <div ng-show="duration" ng-repeat="setting in settings" ng-if="setting.length != 0">
-    {{setting.id}}: {{setting.length}} seconds</div>
+
+    <div ng-show="duration">
+        <h4>Song Duration: {{songDuration}} seconds </h4>
+    </div>
+    <div class="section-details" ng-show="duration" ng-repeat="setting in settings" ng-if="setting.length != 0">
+        <p>{{setting.id}}: {{setting.length}} seconds</p>
+        <button class="add-gear">Add Gear to Section</button>
+    </div>
     
     
     <button class="add-section" ng-click="showSections()">Add Sections</button>
@@ -18,15 +22,13 @@
             <input class="section-length" type="checkbox" name="songSections" ng-model="song.sections.id" ng-show="showSongSections" ng-click="sectionLength(currentSection)">
         <span>{{ currentSection.id }}</span>
         </label>
-        <input class="section-length" type="text" name="sectionLength" placeholder="Enter section length in seconds" ng-model="currentSection.length" ng-show="currentSection.visible">
+        <input class="section-length" type="text" name="sectionLength" autofocus="autofocus" placeholder="Enter section length in seconds" ng-model="currentSection.length" ng-show="currentSection.visible">
     </div>
 
     <button ng-click="calculateDuration()">Add Sections to Song</button>
 
-    <button>Add Gear to Section</button>
-
     <!-- Guitars: <select></select>
         Amplifiers: <select></select>
         Pedals: <select></select> -->
-    <button class="delete" ng-click="deleteSong()">Delete Song</button>
+    <button class="delete delete-song" ng-click="deleteSong()">Delete Song</button>
 </section>

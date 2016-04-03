@@ -1,10 +1,11 @@
 <section class="guitar-details">
-    &lt;&lt; <a href="/#guitars-list">Back to guitar listings</a>
+    <div ng-include="'partials/navbar.html'" scope="" onload=""></div>
+    &lt;&lt; <a href="#/my-gear">Back to gear listings</a>
 
     <div>
         <p>
-        Brand: {{ selectedGuitar.brand }}
-        Model: {{ selectedGuitar.model }}
+            Brand: {{ selectedGuitar.brand }}
+            Model: {{ selectedGuitar.model }}
         </p>
     </div>
 

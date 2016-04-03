@@ -8,120 +8,128 @@ soundApp.controller("SongDetailsCtrl",
   "$location",
   "songFactory",
 
-  function($scope, $routeParams, $http, $location, songFactory) {
+    function($scope, $routeParams, $http, $location, songFactory) {
 
 
-    // code structure to display gear items retrieved from Firebase on 'add gear to song section' view
-    /*
-    GuitarFactory().then(
-        (guitars) => {
-            $scope.guitars = guitars;
-            
-            // Do something with guitars
-            return AmplifierFactory();
-        }
-    ).then(
-        (amplifiers) => {
-            $scope.amplifiers = amplifiers;
-            // Do something with amps
-            return PedalFactory();
-        }
-    ).then(
-        (pedals) => {
+        // code structure to display gear items retrieved from Firebase on 'add gear to song section' view
+        /*
+        GuitarFactory().then(
+            (guitars) => {
+                $scope.guitars = guitars;
+                
+                // Do something with guitars
+                return AmplifierFactory();
+            }
+        ).then(
+            (amplifiers) => {
+                $scope.amplifiers = amplifiers;
+                // Do something with amps
+                return PedalFactory();
+            }
+        ).then(
+            (pedals) => {
 
-            // We know we have ALL the data;
-            $scope.
-        }
-    )
-    */
+                // We know we have ALL the data;
+                $scope.
+            }
+        )
+        */
 
-    // Default properties for bound variables
-    $scope.songs = [];
-    $scope.selectedSong = {};
-    $scope.songDuration;
+        // Default properties for bound variables
+        $scope.songs = [];
+        $scope.selectedSong = {};
+        $scope.songDuration;
 
-    // Invoke the promise that reads from Firebase
-    songFactory().then(
+        // Invoke the promise that reads songs collection from Firebase
+        songFactory().then(
 
-        // Handle resolve() from the promise
-        function(songCollection) {
-            console.log("songCollection", songCollection);
-            Object.keys(songCollection).forEach(function (key) {
-                songCollection[key].id = key;
-                $scope.songs.push(songCollection[key]);
-        });
-        $scope.selectedSong = $scope.songs.filter(function (song) {
-            console.log("song.id", song.id);
-            console.log("$routeParams.songId", $routeParams.songid);
-            return song.id === $routeParams.songid;
-        })[0];
-        console.log("$scope.selectedSong", $scope.selectedSong);
-        },
+            // Handle resolve() from the promise
+            function(songCollection) {
+                Object.keys(songCollection).forEach(function (key) {
+                    songCollection[key].id = key;
+                    $scope.songs.push(songCollection[key]);
+            });
+            $scope.selectedSong = $scope.songs.filter(function (song) {
+                return song.id === $routeParams.songid;
+            })[0];
+            console.log("$scope.selectedSong", $scope.selectedSong);
+            },
 
-        // Handle reject() from the promise
-        function(err) {
-        console.log(err)
-        }
-    );
+            // Handle reject() from the promise
+            function(err) {
+            console.log(err);
+            }
+        );
 
-    // song sections to add dynamically to song-details view
-    $scope.sections = [
-        { id: "Intro", visible: false, length: 0 }, 
-        { id: "Verse", visible: false, length: 0 }, 
-        { id: "Chorus", visible: false, length: 0 },
-        { id: "Bridge", visible: false, length: 0 },
-        { id: "Outro", visible: false, length: 0 },
-        { id: "Solo", visible: false, length: 0 }
-    ];
-    
-    // Sets the addSongSections div to false, rendering the div hidden on page load
-    $scope.showSongSections = false;
+        // song sections to add dynamically to song-details view
+        $scope.sections = [
+            { id: "Intro", visible: false, length: 0 }, 
+            { id: "Verse", visible: false, length: 0 }, 
+            { id: "Chorus", visible: false, length: 0 },
+            { id: "Bridge", visible: false, length: 0 },
+            { id: "Outro", visible: false, length: 0 },
+            { id: "Solo", visible: false, length: 0 }
+        ];
+        
+        // Sets the addSongSections div to false, rendering the div hidden on page load
+        $scope.showSongSections = false;
 
-    /* 
-    Sets the addSongSections div to true, showing a div when the Add Sections button is clicked 
-    The button acts like a toggle for showing and hiding the div
-    */
-    $scope.showSections = function() {
-        $scope.showSongSections = !$scope.showSongSections;
-    };
+        /* 
+        Sets the addSongSections div to true, showing a div when the Add Sections button is clicked 
+        The button acts like a toggle for showing and hiding the div
+        */
+        $scope.showSections = function() {
+            $scope.showSongSections = !$scope.showSongSections;
+        };
 
+        // All section length input boxes are initially hidden
+        $scope.showSectionLength = false;
+        $scope.sectionLength = function(section) {
+            let selectedSection = $scope.sections.filter((s) => {
+                return s.id === section.id;
+            })[0];
+            selectedSection.visible = !selectedSection.visible;
+            console.log("selectedSection", selectedSection);
+            // $scope.sections[section.id].visible = !$scope.sections[section.id].visible;
+        };
 
-    $scope.showSectionLength = false;
-    $scope.sectionLength = function(section) {
-        let selectedSection = $scope.sections.filter((s) => {
-            return s.id === section.id;
-        })[0];
-        selectedSection.visible = !selectedSection.visible;
-        // console.log("selectedSection", selectedSection);
-        // $scope.sections[section.id].visible = !$scope.sections[section.id].visible;
+        // function to loop over each section length being added to the song to calculate the total song duration
+        $scope.calculateDuration = function(){
+            console.log("calculateDuration was fired");
+            $scope.songDuration = 0;
+            $scope.settings = [];
+
+            var userRef = new Firebase(`https://front-end-capstone12.firebaseio.com/songs/${$scope.selectedSong.id}/sections`);
+
+            $scope.sections.forEach((s) => {
+                $scope.songDuration += parseInt(s.length);
+                $scope.duration = true;
+                console.log("$scope.songDuration", $scope.songDuration);
+                $scope.settings.push({id: s.id, length: s.length});
+                if (s.length !== 0) {
+                    userRef.push({id: s.id, length: s.length});
+                }
+                // $http.post(
+                // `https://front-end-capstone12.firebaseio.com/songs/${$scope.selectedSong.id}/sections`);
+
+                // // Remember to stringify objects/arrays before
+                // // sending them to an API
+                // JSON.stringify({
+                //   id: s.id,
+                //   length: s.length
+                //     })
+            });
+
+            // get song key, write sections to song on database
+        };
+
+        /*
+          This function is bound to an ng-click directive on the delete button in the view
+          Function deletes the current song from Firebase, then redirects back to the song list
+        */
+        $scope.deleteSong = function(){ $http
+            .delete(`https://front-end-capstone12.firebaseio.com/songs/${$routeParams.songid}.json`)
+            .then(() => $location.url("/songs-list"));
+        };
     }
-
-    // function to loop over each section length being added to the song to calculate the song duration
-    $scope.calculateDuration = function(){
-        console.log("calculateDuration was fired");
-        $scope.songDuration = 0;
-        $scope.settings = [];
-
-        var userRef = new Firebase(`https://front-end-capstone12.firebaseio.com/songs/`);
-
-        $scope.sections.forEach((s) => {
-            $scope.songDuration += parseInt(s.length);
-            $scope.duration = true;
-            console.log("$scope.songDuration", $scope.songDuration);
-            $scope.settings.push({id: s.id, length: s.length});
-            // userRef.push(s.id, s.length)
-        })
-
-        // get song key, write sections to song on database
-    }
-
-    /*
-      This function is bound to an ng-click directive on the delete button in the view
-      Function deletes the current song from Firebase, then redirects back to the song list
-    */
-    $scope.deleteSong = function(){ $http
-        .delete(`https://front-end-capstone12.firebaseio.com/songs/${$routeParams.songid}.json`)
-        .then(() => $location.url("/songs-list"));
-      }
-  }
 ]);

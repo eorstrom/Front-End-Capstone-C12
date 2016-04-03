@@ -1,6 +1,30 @@
+/* GENERAL STYLING */
+
 body {
-    font-size: 1.2em;
+    font-size: 1.6em;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    margin: .3em;
+}
+
+label {
+    display: block;
+}
+
+button {
+    font-size: .8em;
+}
+
+/* LOGIN PAGE STYLING */
 
 .authentication {
     padding: .3em;
@@ -9,19 +33,9 @@ body {
     margin: 0 auto;
 }
 
-.delete {
-    margin-top: 5em;
-}
 
-.add-song {
-    margin: 1.5em;
-    text-align: center;
-}
 
-.add-section {
-    display: block;
-    margin-top: 1em;
-}
+/* NAVBAR STYLING */
 
 nav ul li a {
     text-decoration: none;
@@ -34,22 +48,79 @@ nav ul li {
     margin: 0 0.6em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+nav {
+    margin: 2em auto;
     text-align: center;
 }
 
-input {
-    margin: .3em;
+#logout {
+    padding-left: 8em;
+}
+
+/* SONG LIST VIEW STYLING */
+
+section.songs-list {
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.add-song {
+    margin: 1em;
+    text-align: center;
+}
+
+
+
+/* SONG DETAILS VIEW STYLING */
+
+section.song-details {
+    margin: 1em;
+}
+
+.add-section {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: .8em;
+}
+
+.delete-song {
+    margin-top: 5em;
 }
 
 label.song-section {
     display: block;
 }
 
-label {
-    display: block;
+div.section-details p {
+    display: inline;
 }
 
-a {
-    text-decoration: none;
+button.add-gear {
+    display: inline;
+    font-size: .8em;
+    margin-left: 3em;
+}
+
+
+/* GEAR LIST STYLING */
+
+section.my-gear {
+    margin: 1em;
+}
+
+div.add-new {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.btn-warning {
+    color: #fff;
+    background-color: purple;
+    border-color: orchid;
+}
+
+.btn-warning:hover {
+    color: #fff;
+    background-color: #663399;
+    border-color: orchid;
 }

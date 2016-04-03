@@ -17,5 +17,5 @@ soundApp.controller("SongsListCtrl",
                 $scope.songs.push(data.data[key]);
             }
             console.log("$scope.songs", $scope.songs);
-        })
+        });
 }]);
