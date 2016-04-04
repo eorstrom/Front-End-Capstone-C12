@@ -6,6 +6,7 @@ soundApp.controller("SongsListCtrl",
     "$scope",
 
     function($http, $scope) {
+        // create a new array called songs to hold song information retrieved from Firebase
         $scope.songs = [];
         $http.get('https://front-end-capstone12.firebaseio.com/songs.json')
         .then(

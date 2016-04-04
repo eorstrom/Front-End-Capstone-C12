@@ -56,6 +56,11 @@ let isAuth = function (authFactory) {
             templateUrl: 'partials/add-amplifier.html',
             controller: 'AddAmplifierCtrl',
             resolve: { isAuth }
+            }).   // add gear to section
+            when('/add-gear', {
+            templateUrl: 'partials/add-gear.html',
+            controller: 'AddGearCtrl',
+            resolve: { isAuth }
             }).   // song detail
             when('/songs/:songid', {
             templateUrl: 'partials/song-details.html',

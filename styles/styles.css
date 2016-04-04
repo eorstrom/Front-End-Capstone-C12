@@ -24,6 +24,26 @@ button {
     font-size: .8em;
 }
 
+.page-header {
+    margin: 0 auto;
+}
+
+.logo-img {
+    height: 11.250em;
+    width: 11.250em;
+    display: inline;
+    margin: 1em;
+}
+
+.site-title {
+    display: inline;
+    text-align: center;
+    margin-left: 3em;
+    font-family: "Cambria", "Lucida Bright", Verdana;
+    font-weight: 400;
+    font-size: 2.5em;
+}
+
 /* LOGIN PAGE STYLING */
 
 .authentication {
@@ -77,7 +97,7 @@ section.song-details {
     margin: 1em;
 }
 
-.add-section {
+.add-sections {
     display: block;
     margin-top: 1em;
     margin-bottom: .8em;
@@ -85,6 +105,7 @@ section.song-details {
 
 .delete-song {
     margin-top: 5em;
+    display: block;
 }
 
 label.song-section {
@@ -93,6 +114,11 @@ label.song-section {
 
 div.section-details p {
     display: inline;
+}
+
+div.section-details p + button {
+    display: inline;
+    margin-bottom: 1em;
 }
 
 button.add-gear {
@@ -123,4 +149,26 @@ div.add-new {
     color: #fff;
     background-color: #663399;
     border-color: orchid;
+}
+
+.btn-warning:active {
+    color: #fff;
+    background-color: #663399;
+    border-color: orchid;
+}
+
+
+
+/* ADD GEAR TO SECTION STYLING */
+
+section.add-gear-to-section div button {
+    display: inline;
+    margin: 1em;
+}
+
+/* FOOTER STYLING */
+
+footer {
+    margin: 0 auto;
+    text-align: center;
 }
