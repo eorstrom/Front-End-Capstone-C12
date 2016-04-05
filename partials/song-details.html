@@ -4,14 +4,23 @@
     <div autoscroll="true">
         <div>
             <h3>{{ selectedSong.title }}</h3>
+            <h4 ng-model="selectedSong.duration">Song Duration: {{selectedSong.duration}} seconds </h4>
+            <!-- <h4 ng-show="duration">Song Duration: {{selectedSong.duration}} seconds </h4> -->
         </div>
 
+            <div ng-repeat="section in selectedSong.songSections">{{section.id}}:  {{section.length}} seconds</div>
+        
         <div ng-show="duration">
             <h4>Song Duration: {{songDuration}} seconds </h4>
         </div>
-        <div class="section-details" ng-show="duration" ng-repeat="section in sections" ng-if="setting.length != 0">
+        <div class="section-details" 
+             ng-show="duration" 
+             ng-repeat="section in sections" 
+             ng-if="section.length != 0">
             <p>{{section.id}}: {{section.length}} seconds</p>
-            <button class="add-gear"><a href="#/add-gear">Add Gear to {{section.id}}</a></button>
+            <button class="add-gear">
+                <a href="#/add-gear/${$routeParams.sectionid}">Add Gear to {{section.id}}</a>
+            </button>
             <button class="delete delete-section" ng-click="deleteSection()">Delete {{section.id}}</button>
         </div>
         
@@ -20,10 +29,21 @@
 
         <div ng-repeat="currentSection in sections" ng-show="showSongSections">    
             <label class="song-section">
-                <input class="section-length" type="checkbox" name="songSections" ng-model="song.sections.id" ng-show="showSongSections" ng-click="sectionLength(currentSection)">
+                <input class="section-length" 
+                        type="checkbox" 
+                        name="songSections" 
+                        ng-model="song.sections.id" 
+                        ng-show="showSongSections" 
+                        ng-click="sectionLength(currentSection)">
             <span>{{ currentSection.id }}</span>
             </label>
-            <input class="section-length" type="text" name="sectionLength" autofocus="autofocus" placeholder="Enter section length in seconds" ng-model="currentSection.length" ng-show="currentSection.visible">
+            <input class="section-length" 
+                    type="text" 
+                    name="sectionLength" 
+                    autofocus="autofocus" 
+                    placeholder="Enter section length in seconds" 
+                    ng-model="currentSection.length" 
+                    ng-show="currentSection.visible">
         </div>
 
         <button ng-click="calculateDuration()">Add Sections to Song</button>

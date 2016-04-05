@@ -10,6 +10,7 @@ soundApp.controller("AddSongCtrl", [
     // Default property values for keys bound to input fields
     $scope.newSong = {
       title: "",
+      duration: "",
       songSections: ""
     };
 
@@ -24,6 +25,7 @@ soundApp.controller("AddSongCtrl", [
         // sending them to an API
         JSON.stringify({
           title: $scope.newSong.title,
+          duration: "",
           songSections: "",
         })
 

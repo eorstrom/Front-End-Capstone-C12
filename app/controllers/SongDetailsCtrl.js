@@ -7,13 +7,16 @@ soundApp.controller("SongDetailsCtrl",
   "$http",
   "$location",
   "songFactory",
+  "sectionFactory",
 
-    function($scope, $routeParams, $http, $location, songFactory) {
+    function($scope, $routeParams, $http, $location, songFactory, sectionFactory) {
 
         // Default properties for bound variables
         $scope.songs = [];
-        $scope.sectionsArray = [];
         $scope.selectedSong = {};
+        $scope.sectionsArray = [];
+        // $scope.selectedSection;
+        // console.log("$scope.selectedSection", $scope.selectedSection);
         $scope.songDuration;
 
         // Invoke the promise that reads songs collection from Firebase
@@ -21,9 +24,14 @@ soundApp.controller("SongDetailsCtrl",
 
             // Handle resolve() from the promise
             function(songCollection) {
+                console.log("songCollection", songCollection);
                 Object.keys(songCollection).forEach(function (key) {
                     songCollection[key].id = key;
                     $scope.songs.push(songCollection[key]);
+
+                    // console.log("songCollection[key].songSections", songCollection[key].songSections);
+                    // $scope.sectionsArray.push(songCollection[key].songSections);
+                    // console.log("$scope.sectionsArray", $scope.sectionsArray);
             });
             $scope.selectedSong = $scope.songs.filter(function (song) {
                 return song.id === $routeParams.songid;
@@ -37,27 +45,34 @@ soundApp.controller("SongDetailsCtrl",
             }
         );
 
-        // function getSections() {
-        //     sectionFactory().then(
-        //         console.log("sectionFactory", sectionFactory);
-        //         // Handle resolve() from the promise
-        //         function(sectionCollection) {
-        //             Object.keys(sectionCollection).forEach(function (key) {
-        //                 sectionCollection[key].id = key;
-        //                 $scope.sectionsArray.push(sectionCollection[key]);
-        //         });
-        //         $scope.selectedSection = $scope.sectionsArray.filter(function (section) {
-        //             return section.id === $routeParams.sectionid;
-        //         })[0];
-        //         console.log("$scope.selectedSection", $scope.selectedSection);
-        //         },
+        // $scope.getSections = function() {
+        // sectionFactory(  $scope.selectedSong.id   ).then(
+        //     // Handle resolve() from the promise
+        //     function(sectionCollection) {
+        //         console.log("sectionCollection", sectionCollection);
+        //         // Object.keys(sectionCollection).forEach(function (key) {
+        //         //     sectionCollection[key].id = key;
+        //         //     $scope.sectionsArray.push(sectionCollection[key]);
+        //         // });
+        //     $scope.selectedSection = $scope.sectionsArray.filter(function (section) {
+        //         return section.id === $routeParams.sectionid;
+        //     })[0];
+        //     console.log("$scope.selectedSection", $scope.selectedSection);
+        //     },
 
-        //         // Handle reject() from the promise
-        //         function(err) {
-        //         console.log(err);
-        //         }
-        //     );
-        // }
+        //     // Handle reject() from the promise
+        //     function(err) {
+        //     console.log("ERROR", err);
+        //     }
+        // );
+        // // }
+        // console.log("$scope.getSections", $scope.getSections());
+
+        // let getSectionData = new Firebase(`https://front-end-capstone12.firebaseio.com/songs/${$routeParams.songid}/songSections`);
+        // getSectionData.then(
+
+        //     )
+        // console.log("getSectionData", getSectionData);
 
         // song sections to add dynamically to song-details view
         $scope.sections = [
@@ -67,7 +82,7 @@ soundApp.controller("SongDetailsCtrl",
             { id: "Bridge", visible: false, length: 0 },
             { id: "Outro", visible: false, length: 0 },
             { id: "Solo", visible: false, length: 0 }
-        ];
+        ]; 
         
         // Sets the addSongSections div to false, rendering the div hidden on page load until Add Sections button is clicked
         $scope.showSongSections = false;
@@ -94,29 +109,25 @@ soundApp.controller("SongDetailsCtrl",
         $scope.calculateDuration = function(){
             $scope.songDuration = 0;    // set initial value of songDuration to 0
             $scope.settings = [];   // create an array to push added song sections to
+            let sections = {};
 
-            var userRef = new Firebase(`https://front-end-capstone12.firebaseio.com/songs/${$routeParams.songid}/songSections`);   
-
-            // $scope.storedSections = getSections();
+            let sectionsRef = new Firebase(`https://front-end-capstone12.firebaseio.com/songs/${$routeParams.songid}/songSections`);   
+            let durationRef = new Firebase(`https://front-end-capstone12.firebaseio.com/songs/${$routeParams.songid}/duration`);   
 
             // loop over each object in sections to check for a value in length to add to total songDuration
-
-            let sections = {};
 
             $scope.sections.forEach((s) => {
                 // console.log("s", s);
                 $scope.songDuration += parseInt(s.length);  // parseInt input for section length to turn into a number
                 $scope.duration = true;    // show songDuration in view when true
-                // console.log("this one", s.length);
-                // $scope.settings.push({id: s.id, length: s.length});
-                    // console.log("s.length", s.length);
-                    // 
+                
                 sections[s.id] = {};
                 sections[s.id].id = s.id;
                 sections[s.id].length = s.length;
                 $scope.showSongSections = false;
             });
-            userRef.update(sections);
+            // durationRef.update($scope.songDuration);
+            sectionsRef.update(sections);
 
             // get song key, write sections to song on Firebase
             // setSections(userRef);

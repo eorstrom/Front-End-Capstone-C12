@@ -1,10 +1,11 @@
 <section ng-controller="AddGearCtrl" class="add-gear-to-section">
+    
     <div class="add-amplifier-to-section">
-        <button class="btn btn-warning">Add Amplifier</button>
+        <button class="btn btn-warning" ng-click="showAmplifiers()">Add Amplifier</button>
     </div>
 
     <div class="add-guitar-to-section">
-        <button class="btn btn-warning">Add Guitar</button>
+        <button class="btn btn-warning" ng-click="showGuitars()">Add Guitar</button>
     </div>
 
     <div class="add-pedal-to-section">
@@ -17,14 +18,12 @@
                 ng-model="pedals.id"
                 ng-change="linkSettings(pedals.id)"
                 ng-options="pedal.brand for pedal in pedals"></select>
-                <!-- <option ng-repeat="pedal in pedals" value="{{pedal.brand}}"></option> -->
-                <!-- State selected: {{pedal.brand}} {{pedal.model}} -->
+                
             <p>Model:</p>
             <select style="display: block"
                 ng-model="pedals.id"
                 ng-change="linkSettings(pedals.id)"
                 ng-options="pedal.model for pedal in pedals"></select>
-                <!-- <option ng-repeat="pedal in pedals" value="{{pedal.model}}"></option> -->
 
 
             <div id="set-settings" ng-repeat="setting in settings.settings">
@@ -32,9 +31,9 @@
             </div>
 
 
-            <div>
-                <button>Save Gear Settings</button>
-            </div>
+        </div>
+        <div>
+            <button>Save Gear to Section</button>
         </div>
     </div>
 </section>
