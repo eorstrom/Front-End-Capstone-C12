@@ -2,11 +2,25 @@
     <div ng-include="'partials/navbar.html'" scope="" onload=""></div>
     &lt;&lt; <a href="/#songs-list">Back to song listings</a>
     <div autoscroll="true">
+
+            <!-- <div ng-hide="editorEnabled">
+              {{selectedSong.title}}
+              <button ng-click="enableEditor()">Edit title</button>
+            </div>
+                <div ng-show="editorEnabled">
+                  <input ng-model="editableTitle" ng-show="editorEnabled">
+                  <button ng-click="save()">Save</button>
+                  or
+                  <button ng-click="disableEditor()">Cancel</button>.
+                </div>
+            </div> -->
+         
         <div>
             <h3>{{ selectedSong.title }}</h3>
-            <h4 ng-model="selectedSong.duration">Song Duration: {{selectedSong.duration}} seconds </h4>
-            <!-- <h4 ng-show="duration">Song Duration: {{selectedSong.duration}} seconds </h4> -->
+            <!-- <h4>Song Duration: {{selectedSong.duration}} seconds </h4> -->
+            <h4 ng-show="duration">Song Duration: {{songDuration}} seconds </h4>
         </div>
+       
 
             <div ng-repeat="section in selectedSong.songSections">{{section.id}}:  {{section.length}} seconds</div>
         

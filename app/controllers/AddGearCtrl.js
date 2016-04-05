@@ -200,3 +200,28 @@ soundApp.controller('AddGearCtrl', [
 
         // }
 }]);
+
+
+// code structure to display gear items retrieved from Firebase on 'add gear to song section' view
+    /*
+    GuitarFactory().then(
+        (guitars) => {
+            $scope.guitars = guitars;
+            
+            // Do something with guitars
+            return AmplifierFactory();
+        }
+    ).then(
+        (amplifiers) => {
+            $scope.amplifiers = amplifiers;
+            // Do something with amps
+            return PedalFactory();
+        }
+    ).then(
+        (pedals) => {
+
+            // We know we have ALL the data;
+            $scope.
+        }
+    )
+    */
