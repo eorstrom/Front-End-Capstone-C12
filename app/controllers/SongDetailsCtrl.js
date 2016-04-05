@@ -15,8 +15,6 @@ soundApp.controller("SongDetailsCtrl",
         $scope.selectedSong = {};
         $scope.songDuration;
         $scope.sectionsArray = [];
-        $scope.selectedSection;
-        // console.log("$scope.selectedSection", $scope.selectedSection);
 
         // Invoke the promise that reads songs collection from Firebase
         songFactory().then(
@@ -99,9 +97,10 @@ soundApp.controller("SongDetailsCtrl",
         $scope.calculateDuration = function(){
             $scope.songDuration = 0;    // set initial value of songDuration to 0
             $scope.settings = [];   // create an array to push added song sections to
-            let sections = {};
-
+            
             let sectionsRef = new Firebase(`https://front-end-capstone12.firebaseio.com/songs/${$routeParams.songid}/songSections`);   
+
+            let sections = {};
             // let durationRef = new Firebase(`https://front-end-capstone12.firebaseio.com/songs/${$routeParams.songid}/duration`);   
 
             // loop over each object in sections to check for a value in length to add to total songDuration
@@ -111,15 +110,12 @@ soundApp.controller("SongDetailsCtrl",
                 $scope.duration = true;    // show songDuration in view when true
                 
                 sections[s.id] = {};
-                console.log("sections", sections);
                 sections[s.id].id = s.id;
-                console.log("sections[s.id].id", sections[s.id].id);
                 sections[s.id].length = s.length;
-                console.log("sections[s.id].length", sections[s.id].length);
                 $scope.showSongSections = false;
             });
-            // durationRef.update($scope.songDuration);
             sectionsRef.update(sections);
+            // durationRef.update($scope.songDuration);
         };
 
 
