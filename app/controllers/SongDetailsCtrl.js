@@ -59,18 +59,6 @@ soundApp.controller("SongDetailsCtrl",
         //     );
         // }
 
-        // function setSections(ref){
-        //     console.log("$scope.selectedSong.sections", $scope.selectedSong.sections);
-        //     if (!$scope.selectedSong.sections) {
-        //         ref.push({id: s.id, length: s.length});
-        //     } else {
-        //         for (var i in $scope.selectedSong.sections){
-        //             console.log("$scope.selectedSong.sections.id", $scope.selectedSong.sections.id);
-        //             console.log("id", id);
-        //         }
-        //     }
-        // }
-
         // song sections to add dynamically to song-details view
         $scope.sections = [
             { id: "Intro", visible: false, length: 0 }, 

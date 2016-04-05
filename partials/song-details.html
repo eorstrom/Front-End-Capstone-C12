@@ -11,8 +11,8 @@
         </div>
         <div class="section-details" ng-show="duration" ng-repeat="section in sections" ng-if="setting.length != 0">
             <p>{{section.id}}: {{section.length}} seconds</p>
-            <button class="add-gear"><a href="#/add-gear">Add Gear to {{setting.id}}</a></button>
-            <button class="delete delete-section" ng-click="deleteSection()">Delete {{setting.id}}</button>
+            <button class="add-gear"><a href="#/add-gear">Add Gear to {{section.id}}</a></button>
+            <button class="delete delete-section" ng-click="deleteSection()">Delete {{section.id}}</button>
         </div>
         
         
@@ -28,9 +28,6 @@
 
         <button ng-click="calculateDuration()">Add Sections to Song</button>
 
-        <!-- Guitars: <select></select>
-            Amplifiers: <select></select>
-            Pedals: <select></select> -->
         <button class="delete delete-song" ng-click="deleteSong()">Delete Song</button>
     </div>
 </section>

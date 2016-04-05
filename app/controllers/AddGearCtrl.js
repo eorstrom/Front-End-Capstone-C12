@@ -8,7 +8,7 @@ soundApp.controller('AddGearCtrl', [
             { id: 1, brand: "MXR", model: "Dynacomp", settings: ["output", "sensitivity"]}, 
             { id: 2, brand: "Electro-Harmonix", model: "Soulfood", 
                 settings: ["volume", "treble", "drive"]}, 
-            { id: 3, brand: "Voss", model: "Adaptive Distortion DA_2", 
+            { id: 3, brand: "Boss", model: "Adaptive Distortion DA_2", 
                 settings: ["level", "low", "high", "a_dist"]}
         ];
         console.log("$scope.pedals", $scope.pedals);
