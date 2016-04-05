@@ -4,8 +4,48 @@
         <button class="btn btn-warning" ng-click="showAmplifiers()">Add Amplifier</button>
     </div>
 
+        <div ng-show="showAmplifierOptions">
+            Select a Amplifier:
+            <p>Brand:</p>
+            <select style="display: block" 
+                ng-model="amplifiers.id"
+                ng-change="linkAmplifierSettings(amplifiers.id)"
+                ng-options="amplifier.brand for amplifier in amplifiers"></select>
+                
+            <p>Model:</p>
+            <select style="display: block"
+                ng-model="amplifiers.id"
+                ng-change="linkAmplifierSettings(amplifiers.id)"
+                ng-options="amplifier.model for amplifier in amplifiers"></select>
+
+
+            <div id="set-settings" ng-repeat="setting in settings.settings">
+                {{setting}}: <input type="number"></input>
+            </div>
+        </div>
+
     <div class="add-guitar-to-section">
         <button class="btn btn-warning" ng-click="showGuitars()">Add Guitar</button>
+
+        <div ng-show="showGuitarOptions">
+            Select a Guitar:
+            <p>Brand:</p>
+            <select style="display: block" 
+                ng-model="guitars.id"
+                ng-change="linkGuitarSettings(guitars.id)"
+                ng-options="amplifier.brand for amplifier in guitars"></select>
+                
+            <p>Model:</p>
+            <select style="display: block"
+                ng-model="guitars.id"
+                ng-change="linkGuitarSettings(guitars.id)"
+                ng-options="amplifier.model for amplifier in guitars"></select>
+
+
+            <div id="set-settings" ng-repeat="setting in settings.settings">
+                {{setting}}: <input type="number"></input>
+            </div>
+        </div>
     </div>
 
     <div class="add-pedal-to-section">
@@ -16,13 +56,13 @@
             <p>Brand:</p>
             <select style="display: block" 
                 ng-model="pedals.id"
-                ng-change="linkSettings(pedals.id)"
+                ng-change="linkPedalSettings(pedals.id)"
                 ng-options="pedal.brand for pedal in pedals"></select>
                 
             <p>Model:</p>
             <select style="display: block"
                 ng-model="pedals.id"
-                ng-change="linkSettings(pedals.id)"
+                ng-change="linkPedalSettings(pedals.id)"
                 ng-options="pedal.model for pedal in pedals"></select>
 
 
@@ -30,10 +70,9 @@
                 {{setting}}: <input min="0" max="10" type="number"></input>
             </div>
 
-
         </div>
+    </div>
         <div>
             <button>Save Gear to Section</button>
         </div>
-    </div>
 </section>
