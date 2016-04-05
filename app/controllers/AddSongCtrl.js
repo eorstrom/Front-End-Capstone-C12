@@ -10,7 +10,7 @@ soundApp.controller("AddSongCtrl", [
     // Default property values for keys bound to input fields
     $scope.newSong = {
       title: "",
-      duration: ""
+      songSections: ""
     };
 
     // Function bound to the Add Song button in the view template
@@ -24,7 +24,7 @@ soundApp.controller("AddSongCtrl", [
         // sending them to an API
         JSON.stringify({
           title: $scope.newSong.title,
-          duration: $scope.newSong.duration
+          songSections: "",
         })
 
       // The $http.post() method returns a promise, so you can use then()

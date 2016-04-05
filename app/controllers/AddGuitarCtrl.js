@@ -16,7 +16,7 @@ soundApp.controller("AddGuitarCtrl", [
     // Function bound to the Add Song button in the view template
     $scope.addGuitar = function () {
 
-      // POST the song to Firebase
+      // POST the guitar to Firebase
       $http.post(
         "https://front-end-capstone12.firebaseio.com/guitars.json",
 

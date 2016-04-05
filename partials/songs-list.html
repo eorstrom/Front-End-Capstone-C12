@@ -1,18 +1,19 @@
 <article>
     <div ng-include="'partials/navbar.html'" scope="" onload=""></div>
 
-    <header><h3>My Songs</h3></header>
+    <header>
+        <h3>My Songs</h3>
+    </header>
 
     <section class="songs-list">
 
         <div class="add-song">
-            <a href="#/add-song">Add New Song</a>
+            <a href="#/add-song" class="btn btn-warning">Add New Song</a>
         </div>
         
         <div ng-repeat="song in songs">
-            <a href="#/songs/{{ song.id }}">{{ song.title }}, Duration: {{ song.duration }}</a>
+            <a href="#/songs/{{ song.id }}">{{ song.title }}</a>
         </div>
-
         
     </section>
 </article>

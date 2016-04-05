@@ -1,20 +1,21 @@
 "use strict";
 
-soundApp.controller("AmplifierListCtrl", 
+soundApp.controller('GuitarDetailsCtrl', 
     [
     "$http",
     "$scope",
 
     function($http, $scope) {
-        $scope.amplifiers = [];
-        $http.get('https://front-end-capstone12.firebaseio.com/amplifiers.json')
+    $scope.guitars = [];
+        $http.get('https://front-end-capstone12.firebaseio.com/guitars.json')
         .then(
         function(data) {
             // loop over each amplifier in the Firebase and add them to the amplifiers array
             for (var key in data.data) {
                 data.data[key].id = key;
-                $scope.amplifiers.push(data.data[key]);
+                $scope.guitars.push(data.data[key]);
             }
-            console.log("$scope.amplifiers", $scope.amplifiers);
+            console.log("$scope.guitars", $scope.guitars);
         })
-}]);
+
+}])

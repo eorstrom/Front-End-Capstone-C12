@@ -1,12 +1,12 @@
 "use strict";
 
-soundApp.controller("AmplifierListCtrl", 
+soundApp.controller('AmplifierDetailsCtrl', 
     [
     "$http",
     "$scope",
 
     function($http, $scope) {
-        $scope.amplifiers = [];
+    $scope.amplifiers = [];
         $http.get('https://front-end-capstone12.firebaseio.com/amplifiers.json')
         .then(
         function(data) {
@@ -17,4 +17,5 @@ soundApp.controller("AmplifierListCtrl",
             }
             console.log("$scope.amplifiers", $scope.amplifiers);
         })
-}]);
+
+}])

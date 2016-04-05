@@ -1,35 +1,15 @@
+/* GENERAL STYLING */
+
 body {
-    font-size: 1.1em;
-}
-
-.authentication {
-    padding: .3em;
-    max-width: 25em;
-    text-align: center;
-    margin: .5em;
-}
-
-.delete {
-    margin-top: 5em;
-}
-
-.add-song {
-    margin: 1.5em;
-    text-align: center;
-}
-
-nav ul li a {
-    text-decoration: none;
-}
-
-nav ul li {
-    list-style-type: none;
-    display: inline;
-    margin: 0 0.6em;
+    font-size: 1.6em;
 }
 
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
+}
+
+a {
+    text-decoration: none;
 }
 
 input {
@@ -40,6 +20,155 @@ label {
     display: block;
 }
 
-a {
+button {
+    font-size: .8em;
+}
+
+.page-header {
+    margin: 0 auto;
+}
+
+.logo-img {
+    height: 11.250em;
+    width: 11.250em;
+    display: inline;
+    margin: 1em;
+}
+
+.site-title {
+    display: inline;
+    text-align: center;
+    margin-left: 3em;
+    font-family: "Cambria", "Lucida Bright", Verdana;
+    font-weight: 400;
+    font-size: 2.5em;
+}
+
+/* LOGIN PAGE STYLING */
+
+.authentication {
+    padding: .3em;
+    max-width: 25em;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+
+/* NAVBAR STYLING */
+
+nav ul li a {
     text-decoration: none;
+    margin: 0 auto;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline;
+    margin: 0 0.6em;
+}
+
+nav {
+    margin: 2em auto;
+    text-align: center;
+}
+
+#logout {
+    padding-left: 8em;
+}
+
+/* SONG LIST VIEW STYLING */
+
+section.songs-list {
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.add-song {
+    margin: 1em;
+    text-align: center;
+}
+
+
+
+/* SONG DETAILS VIEW STYLING */
+
+section.song-details {
+    margin: 1em;
+}
+
+.add-sections {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: .8em;
+}
+
+.delete-song {
+    margin-top: 5em;
+    display: block;
+}
+
+label.song-section {
+    display: block;
+}
+
+div.section-details p {
+    display: inline;
+}
+
+div.section-details p + button {
+    display: inline;
+    margin-bottom: 1em;
+}
+
+button.add-gear {
+    display: inline;
+    font-size: .8em;
+    margin-left: 3em;
+}
+
+
+/* GEAR LIST STYLING */
+
+section.my-gear {
+    margin: 1em;
+}
+
+div.add-new {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.btn-warning {
+    color: #fff;
+    background-color: purple;
+    border-color: orchid;
+}
+
+.btn-warning:hover {
+    color: #fff;
+    background-color: #663399;
+    border-color: orchid;
+}
+
+.btn-warning:active {
+    color: #fff;
+    background-color: #663399;
+    border-color: orchid;
+}
+
+
+
+/* ADD GEAR TO SECTION STYLING */
+
+section.add-gear-to-section div button {
+    display: inline;
+    margin: 1em;
+}
+
+/* FOOTER STYLING */
+
+footer {
+    margin: 0 auto;
+    text-align: center;
 }

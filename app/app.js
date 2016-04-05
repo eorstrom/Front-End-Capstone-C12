@@ -22,62 +22,77 @@ let isAuth = function (authFactory) {
     soundApp.config(['$routeProvider',  // $routeProvider object is given to us by ngRoute
     function($routeProvider) {
         $routeProvider.  // note similarity of this syntax to switch/case
-          when('/', {
+            when('/', {
             templateUrl: 'partials/songs-list.html',
             controller: 'SongsListCtrl',
             resolve: { isAuth }
-          }).
-          when('/songs-list', {
+            }).   // songs list
+            when('/songs-list', {
             templateUrl: 'partials/songs-list.html',
             controller: 'SongsListCtrl',
             resolve: { isAuth }
-          }).
-          when('/amplifier-list', {
-            templateUrl: 'partials//amplifier-list.html',
-            controller: 'AmplifierListCtrl',
-            resolve: { isAuth }
-          }).   // add new song
-          when('/add-song', {
-            templateUrl: 'partials/add-song.html',
-            controller: 'AddSongCtrl',
-            resolve: { isAuth }
-          }).   // all gear view
-          when('/my-gear', {
+            }).   // all gear view
+            when('/my-gear', {
             templateUrl: 'partials/gear.html',
             controller: 'GearCtrl',
             resolve: { isAuth }
-          }).   // add new guitar
-          when('/add-guitar', {
+            }).   // add new song
+            when('/add-song', {
+            templateUrl: 'partials/add-song.html',
+            controller: 'AddSongCtrl',
+            resolve: { isAuth }
+            }).   // add new guitar
+            when('/add-guitar', {
             templateUrl: 'partials/add-guitar.html',
             controller: 'AddGuitarCtrl',
             resolve: { isAuth }
-          }).
-          when('/add-pedal', {
+            }).   // add new pedal
+            when('/add-pedal', {
             templateUrl: 'partials/add-pedal.html',
             controller: 'AddPedalCtrl',
             resolve: { isAuth }
-          }).
-          when('/add-amplifier', {
+            }).   // add new amplifier
+            when('/add-amplifier', {
             templateUrl: 'partials/add-amplifier.html',
             controller: 'AddAmplifierCtrl',
             resolve: { isAuth }
-          }).
-          when('/songs/:songid', {
+            }).   // add gear to section
+            when('/add-gear', {
+            templateUrl: 'partials/add-gear.html',
+            controller: 'AddGearCtrl',
+            resolve: { isAuth }
+            }).   // song detail
+            when('/songs/:songid', {
             templateUrl: 'partials/song-details.html',
             controller: 'SongDetailsCtrl',
             resolve: { isAuth }
-          }).   // login page
-          when('/login', {
+            }).   // amplifier detail
+            when('/amplifiers/:amplifierid', {
+            templateUrl: 'partials/amplifier-details.html',
+            controller: 'AmplifierDetailsCtrl',
+            resolve: { isAuth }
+            }).   // guitar detail
+            when('/guitars/:guitarid', {
+            templateUrl: 'partials/guitar-details.html',
+            controller: 'GuitarDetailsCtrl',
+            resolve: { isAuth }
+            }).   // pedal detail
+            when('/pedals/:pedalid', {
+            templateUrl: 'partials/pedal-details.html',
+            controller: 'PedalDetailsCtrl',
+            resolve: { isAuth }
+            }).   // login page
+            when('/login', {
             templateUrl: 'partials/login.html',
             controller: "LoginCtrl"
-          }).   // login page
-          when('/logout', {
+            }).   // login page
+            when('/logout', {
             templateUrl: 'partials/login.html',
             controller: "LoginCtrl"
-          }).
-          otherwise({
+            }).
+            otherwise({
             redirectTo: '/'
-          });
+            });
     }]);
 
 /*
@@ -89,7 +104,6 @@ let isAuth = function (authFactory) {
 
         function ($location) {
             let soundAppRef = new Firebase("https://front-end-capstone12.firebaseio.com/");
-            console.log("run method");
             soundAppRef.onAuth(function(authData) {
                 console.log("authData",authData);
 

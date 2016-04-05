@@ -1,18 +1,64 @@
-<section class="my-gear">
+<section class="my-gear" ng-controller="GearCtrl">
+
     <div ng-include="'partials/navbar.html'" scope="" onload=""></div>
-    
-    <div ng-include="'partials/pedal-list.html'" scope="" onload=""></div>
-        <div>
-            <a href="#/add-pedal">Add New Pedal ></a>
+
+    <!-- AMPLIFIERS LIST -->
+    <article>
+
+        <header>
+            <h3>My Amplifiers</h3>
+        </header>
+
+        <div class="add-new">
+            <a href="#/add-amplifier" class="btn btn-warning">Add New Amplifier</a>
         </div>
 
-    <div ng-include="'partials/amplifier-list.html'" scope="" onload=""></div>
-        <div>
-            <a href="#/add-amplifier">Add New Amplifier ></a>
+        <section class="amplifiers-list">
+            <div ng-repeat="amplifier in amplifiers">
+                <a href="#/amplifiers/{{ amplifier.id }}">Brand: {{ amplifier.brand }}, Model: {{ amplifier.model }}</a>
+            </div>
+        </section>
+
+    </article>
+
+
+    <!-- GUITARS LIST -->
+    <article>
+
+        <header>
+            <h3>My Guitars</h3>
+        </header>
+
+        <div class="add-new">
+            <a href="#/add-guitar" class="btn btn-warning add-new">Add New Guitar</a>
         </div>
 
-    <div ng-include="'partials/guitar-list.html'" scope="" onload=""></div>
-        <div>
-            <a href="#/add-guitar">Add New Guitar ></a>
+        <section class="guitars-list">
+            <div ng-repeat="guitar in guitars">
+                <a href="#/guitars/{{ guitar.id }}">Brand: {{ guitar.brand }}, Model: {{ guitar.model }}</a>
+            </div>
+        </section>
+
+    </article>
+
+
+    <!-- PEDALS LIST -->
+    <article>
+
+        <header>
+            <h3>My Pedals</h3>
+        </header>
+
+        <div class="add-new">
+            <a href="#/add-pedal" class="btn btn-warning add-new">Add New Pedal</a>
         </div>
+
+        <section class="pedals-list">
+            <div ng-repeat="pedal in pedals">
+                <a href="#/pedals/{{ pedal.id }}">Brand: {{ pedal.brand }}, Model: {{ pedal.model }}</a>
+            </div>
+        </section>
+
+    </article>
+
 </section>

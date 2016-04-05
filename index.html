@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <title>What's That Sound?</title>
     <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <!-- <link rel="stylesheet" type="text/css" href="styles/login-styles.css"> -->
 </head>
 
 <body ng-app="soundApp">
 
     <div class="app-container">
-        <h1>What's That Sound?</h1>
+        <div class="page-header">
+            <img class="logo-img" src="http://img15.deviantart.net/5cdc/i/2010/312/d/7/esp_guitar_logo_by_fangschrecke-d2uk4tk.jpg">
+            <h1 class="site-title">What's That Sound?</h1>
+        </div>
 
         <div ng-view></div>
+        
+        <div ng-include="'partials/add-gear.html'" scope="" onload=""></div>
 
+        <div ng-include="'partials/footer.html'" scope="" onload=""></div>
     </div>
 
 
@@ -27,24 +33,34 @@
     <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
     <script srd="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
 
+    <!-- Main App Controller -->
     <script src="app/app.js"></script>
+
     <!-- FACTORIES -->
-    <script src="app/factories/AuthFactory.js"></script>
-    <script src="app/factories/SongFactory.js"></script>
+        <script src="app/factories/AuthFactory.js"></script>
+        <script src="app/factories/SongFactory.js"></script>
+        <script src="app/factories/SectionFactory.js"></script>
+        <script src="app/factories/PedalFactory.js"></script>
+        <script src="app/factories/AmplifierFactory.js"></script>
+        <script src="app/factories/GuitarFactory.js"></script>
+
     <!-- CONTROLLERS -->
-    <script src="app/controllers/LoginCtrl.js"></script>
-    <script src="app/controllers/SongsListCtrl.js"></script>
-    <script src="app/controllers/SongDetailsCtrl.js"></script>
-    <script src="app/controllers/PedalListCtrl.js"></script>
-    <script src="app/controllers/AmplifierListCtrl.js"></script>
-    <script src="app/controllers/GuitarListCtrl.js"></script>
-    <script src="app/controllers/AddSongCtrl.js"></script>
-    <script src="app/controllers/AddPedalCtrl.js"></script>
-    <script src="app/controllers/AddAmplifierCtrl.js"></script>
-    <script src="app/controllers/AddGuitarCtrl.js"></script>
-    <script src="app/controllers/GearCtrl.js"></script>
+        <script src="app/controllers/LoginCtrl.js"></script>
+        <script src="app/controllers/SongsListCtrl.js"></script>
+        <script src="app/controllers/SongDetailsCtrl.js"></script>
+        <script src="app/controllers/PedalListCtrl.js"></script>
+        <script src="app/controllers/PedalDetailsCtrl.js"></script>
+        <script src="app/controllers/AmplifierListCtrl.js"></script>
+        <script src="app/controllers/GuitarListCtrl.js"></script>
+        <script src="app/controllers/AddSongCtrl.js"></script>
+        <script src="app/controllers/AddPedalCtrl.js"></script>
+        <script src="app/controllers/AddAmplifierCtrl.js"></script>
+        <script src="app/controllers/AddGuitarCtrl.js"></script>
+        <script src="app/controllers/AddGearCtrl.js"></script>
+        <script src="app/controllers/GearCtrl.js"></script>
+        <script src="app/controllers/FooterCtrl.js"></script>
     
     <!-- Latest compiled and minified JavaScript -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
 </html>

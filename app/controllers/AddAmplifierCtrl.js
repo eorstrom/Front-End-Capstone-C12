@@ -13,10 +13,10 @@ soundApp.controller("AddAmplifierCtrl", [
       model: ""
     };
 
-    // Function bound to the Add Song button in the view template
+    // Function bound to the Add Amplifier button in the view template
     $scope.addAmplifier = function () {
 
-      // POST the song to Firebase
+      // POST the amplifier to Firebase
       $http.post(
         "https://front-end-capstone12.firebaseio.com/amplifiers.json",
 
